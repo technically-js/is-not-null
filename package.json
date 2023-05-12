@@ -40,7 +40,6 @@
     "test:commonjs": "node test.js",
     "test:esm": "node test.mjs",
     "test:types": "tsc --noEmit ./index.d.ts",
-    "prepublish": "npm run test",
     "release": "np"
   },
   "devDependencies": {
