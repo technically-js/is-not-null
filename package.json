@@ -36,6 +36,12 @@
     "guard"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:commonjs && npm run test:esm && npm run test:types",
+    "test:commonjs": "node test.js",
+    "test:esm": "node test.mjs",
+    "test:types": "tsc --noEmit ./index.d.ts"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0"
   }
 }
