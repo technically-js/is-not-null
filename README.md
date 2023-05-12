@@ -42,6 +42,10 @@ const uppercase = values.filter((x): x is Exclude<typeof x, null> => Boolean(x))
 
 To avoid writing these ad-hoc type-guards every time, I've created this package.
 
+## Related packages
+
+- [`@technically/is-not-undefined`](https://github.com/technically-js/is-not-undefined)
+
 ## License
 
 [MIT](./LICENSE)
