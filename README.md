@@ -9,7 +9,7 @@
 ```ts
 import { isNotNull } from '@technically/is-not-null';
 
-const values: (string | null)[] = ['hello', 'world', null];
+const values = ['hello', 'world', null];
 
 const uppercase = values.filter(isNotNull).map((value) => {
   return value.toUpperCase(); // OK
@@ -23,7 +23,7 @@ In Typescript, it is often needed to filter out nulls from a list of values, and
 The problem is that [`Boolean` does not currently work as a type-guard in Typescript](https://github.com/microsoft/TypeScript/issues/16655):
 
 ```ts
-const values: (string | null)[] = ['hello', 'world', null];
+const values = ['hello', 'world', null];
 
 const uppercase = values.filter(Boolean).map((value) => {
   return value.toUpperCase(); // TS18047: 'value' is possibly 'null'.
@@ -33,7 +33,7 @@ const uppercase = values.filter(Boolean).map((value) => {
 To mitigate the issue you have to wrap `Boolean` into a type-guard function like this:
 
 ```ts
-const values: (string | null)[] = ['hello', 'world', null];
+const values = ['hello', 'world', null];
 
 const uppercase = values.filter((x): x is Exclude<typeof x, null>).map((value) => {
   return value.toUpperCase(); // TS18047: 'value' is possibly 'null'.
