@@ -36,7 +36,7 @@ To mitigate the issue you have to wrap `Boolean` into a type-guard function like
 const values = ['hello', 'world', null];
 
 const uppercase = values.filter((x): x is Exclude<typeof x, null> => Boolean(x)).map((value) => {
-  return value.toUpperCase(); // TS18047: 'value' is possibly 'null'.
+  return value.toUpperCase(); // OK
 });
 ```
 
